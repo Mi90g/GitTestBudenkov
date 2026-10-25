@@ -1,0 +1,113 @@
+vovar@LAPTOP-T4IK81UB UCRT64 /c/GitRepo/Lab1 (master)
+$ cd C:/GitRepo2
+
+vovar@LAPTOP-T4IK81UB UCRT64 /c/GitRepo2
+$ git init
+Initialized empty Git repository in C:/GitRepo2/.git/
+
+vovar@LAPTOP-T4IK81UB UCRT64 /c/GitRepo2 (master)
+$ git status
+On branch master
+
+No commits yet
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        text.txt
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+vovar@LAPTOP-T4IK81UB UCRT64 /c/GitRepo2 (master)
+$ git add text.txt
+
+vovar@LAPTOP-T4IK81UB UCRT64 /c/GitRepo2 (master)
+$ git status
+On branch master
+
+No commits yet
+
+Changes to be committed:
+  (use "git rm --cached <file>..." to unstage)
+        new file:   text.txt
+
+
+vovar@LAPTOP-T4IK81UB UCRT64 /c/GitRepo2 (master)
+$ git commit -m "Файл text во 2 репозитории"
+[master (root-commit) e263e0a] Файл text во 2 репозитории
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 text.txt
+
+vovar@LAPTOP-T4IK81UB UCRT64 /c/GitRepo2 (master)
+$ git log
+commit e263e0a7d878842120fec67a241909cfcff87c81 (HEAD -> master)
+Author: Mi90g <vova.r.2017@list.ru>
+Date:   Sun Oct 25 19:48:51 2026 +0300
+
+    Файл text во 2 репозитории
+
+vovar@LAPTOP-T4IK81UB UCRT64 /c/GitRepo2 (master)
+$ git status
+On branch master
+nothing to commit, working tree clean
+
+vovar@LAPTOP-T4IK81UB UCRT64 /c/GitRepo2 (master)
+$ git remote add first /c/GitRepo/tmp
+
+vovar@LAPTOP-T4IK81UB UCRT64 /c/GitRepo2 (master)
+$ git remote -v
+first   C:/GitRepo/tmp (fetch)
+first   C:/GitRepo/tmp (push)
+
+vovar@LAPTOP-T4IK81UB UCRT64 /c/GitRepo2 (master)
+$ git pull first master  --allow-unrelated-histories
+remote: Enumerating objects: 10, done.
+remote: Counting objects: 100% (10/10), done.
+remote: Compressing objects: 100% (4/4), done.
+remote: Total 10 (delta 0), reused 0 (delta 0), pack-reused 0 (from 0)
+Unpacking objects: 100% (10/10), 788 bytes | 0 bytes/s, done.
+From C:/GitRepo/tmp
+ * branch            master     -> FETCH_HEAD
+ * [new branch]      master     -> first/master
+Merge made by the 'ort' strategy.
+ README.txt | 1 +
+ test.txt   | 1 +
+ 2 files changed, 2 insertions(+)
+ create mode 100644 README.txt
+ create mode 100644 test.txt
+
+vovar@LAPTOP-T4IK81UB UCRT64 /c/GitRepo2 (master)
+$ ls
+README.txt  test.txt  text.txt
+
+vovar@LAPTOP-T4IK81UB UCRT64 /c/GitRepo2 (master)
+$ git log
+commit fe9cdbe4467200cd90b889417de6903558b7635e (HEAD -> master)
+Merge: e263e0a 1ef1673
+Author: Mi90g <vova.r.2017@list.ru>
+Date:   Sun Oct 25 19:53:57 2026 +0300
+
+    ;rgb:bfbf/bfbf/bfbfrgb:0000/0000/0000
+
+commit e263e0a7d878842120fec67a241909cfcff87c81
+Author: Mi90g <vova.r.2017@list.ru>
+Date:   Sun Oct 25 19:48:51 2026 +0300
+
+    Файл text во 2 репозитории
+
+commit 1ef16732e8351ca4f6cc0f9df9f8558f18dd15ed (first/master)
+Author: Mi90g <vova.r.2017@list.ru>
+Date:   Sun Oct 25 19:09:00 2026 +0300
+
+    Тестовый коммит с 2 изменениями
+
+commit 427d835d5ab9c0f23cd9452e12dfdf9b42868f98
+Author: Mi90g <vova.r.2017@list.ru>
+Date:   Sun Oct 25 19:05:00 2026 +0300
+
+    Изменения в README
+
+commit 9a7ca54f1840080fa940b696c22cd54a32c89258
+Author: Mi90g <vova.r.2017@list.ru>
+Date:   Sun Oct 25 19:00:57 2026 +0300
+
+    Добавлен файл README
